@@ -3,6 +3,7 @@ import { Book } from '../models'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useNotificationStore } from '../store'
+import { ActionStatusOptions } from '../models/ActionStatus'
 
 function useUpdateBook(book: Book) {
     const setNotificationState = useNotificationStore(state => state.setNotificationState)
@@ -14,13 +15,13 @@ function useUpdateBook(book: Book) {
         mutationFn: (book: Book) => updateBook(book),
         onSuccess: (response: Book) => {
             setBookState(() => response)
-            setNotificationState({ notificationVisibility: true, notificationStatus: 'success' })
+            setNotificationState({ notificationVisibility: true, notificationStatus: ActionStatusOptions.Success })
             queryClient.invalidateQueries({ queryKey: [response.category] })
             queryClient.invalidateQueries({ queryKey: ['allBooks'] })
         },
         onError: (error) => {
             console.log(error)
-            setNotificationState({ notificationVisibility: true, notificationStatus: 'danger' })
+            setNotificationState({ notificationVisibility: true, notificationStatus: ActionStatusOptions.Danger })
         }
     })
 

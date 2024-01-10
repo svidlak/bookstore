@@ -6,7 +6,7 @@ export type Book = {
     publicationDate: string
     category: string
     imageUrl: string
-    price: string
+    price: number
     updated_at: number
     created_at: number
 }
