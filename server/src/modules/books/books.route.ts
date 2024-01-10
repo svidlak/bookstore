@@ -8,11 +8,23 @@ const booksControler = container.resolve(BooksController);
 const routeBasePath = '/books';
 
 router.route(routeBasePath)
-    .get((req, res) => booksControler.getBooks(req, res))
-    .post((req, res) => booksControler.createBook(req, res));
+    .get(async (req, res, next) => {
+        try { await booksControler.getBooks(req, res) }
+        catch (e) { next(e) }
+    })
+    .post(async (req, res, next) => {
+        try { await booksControler.createBook(req, res) }
+        catch (e) { next(e) }
+    });
 
 router.route(`${routeBasePath}/:id`)
-    .put((req, res) => booksControler.updateBook(req, res))
-    .delete((req, res) => booksControler.deleteBook(req, res))
+    .put(async (req, res, next) => {
+        try { await booksControler.updateBook(req, res) }
+        catch (e) { next(e) }
+    })
+    .delete(async (req, res, next) => {
+        try { await booksControler.deleteBook(req, res) }
+        catch (e) { next(e) }
+    })
 
 export default router;

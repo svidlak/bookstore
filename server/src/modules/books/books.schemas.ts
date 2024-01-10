@@ -1,54 +1,60 @@
+import { sqliteTable, uniqueIndex, index, text, integer } from 'drizzle-orm/sqlite-core';
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+
 import { z } from 'zod';
 import { validate } from 'uuid';
+
+export const booksSchema = sqliteTable('books', {
+    id: integer('id').primaryKey({ autoIncrement: true }),
+    uuid: text('uuid').notNull(),
+    title: text('title').notNull(),
+    description: text('description').notNull(),
+    authors: text('authors').notNull(),
+    publicationDate: text('publicationDate').notNull(),
+    category: text('category').notNull(),
+    imageUrl: text('imageUrl').notNull(),
+    price: integer('price').notNull(),
+    updated_at: integer('updated_at').default(Date.now()),
+    created_at: integer('created_at').default(Date.now()),
+    active: integer('active').default(1)
+}, (table) => {
+    return {
+        idx_books_uuid: uniqueIndex('uuid').on(table.uuid),
+        idx_books_category: index('category').on(table.category)
+    }
+});
+
+export const createBookSchema = createInsertSchema(booksSchema).pick({
+    title: true,
+    authors: true,
+    price: true,
+    category: true,
+    description: true,
+    imageUrl: true
+}).strict();
+
+export const updateBookSchema = createInsertSchema(booksSchema).pick({
+    title: true,
+    authors: true,
+    price: true,
+    category: true,
+    description: true,
+}).strict()
 
 export const getBooksSchema = z.object({
     category: z.string().optional(),
     limit: z.string().optional()
 }).strict();
 
-export type getBooksQueryParams = z.infer<typeof getBooksSchema>;
 
-export const updateBookSchema = z.object({
-    body: z.object({
-        title: z.string(),
-        authors: z.string(),
-        price: z.string().refine(value => !isNaN(Number(value))),
-        category: z.string(),
-        description: z.string(),
-    }),
-    params: z.object({
-        id: z.string().refine(value => validate(value)),
-    }),
-}).strict();
+export const uuidRequestParam = z.object({
+    id: z.string().refine(value => validate(value)),
+}).strict()
 
-type updateBookParams = z.infer<typeof updateBookSchema>;
 
-export type updateBook = {
-    id: updateBookParams['params']['id'];
-    data: {
-        title: updateBookParams['body']['title'];
-        authors: updateBookParams['body']['authors'];
-        price: updateBookParams['body']['price'];
-        category: updateBookParams['body']['category'];
-        description: updateBookParams['body']['description'];
-    };
-};
+export const targetBookSchema = createSelectSchema(booksSchema).strict()
+export const booksArraySchema = z.array(targetBookSchema)
 
-export const deleteBookSchema = z.object({
-    params: z.object({
-        id: z.string().refine(value => validate(value)),
-    }),
-}).strict();
-
-export type deleteBookParams = z.infer<typeof deleteBookSchema>;
-
-export const createBookSchema = z.object({
-    title: z.string(),
-    authors: z.string(),
-    price: z.string().refine(value => !isNaN(Number(value))),
-    category: z.string(),
-    description: z.string(),
-    imageUrl: z.string()
-}).strict();
-
-export type createBookBody = z.infer<typeof createBookSchema>;
+export type CreateBook = z.infer<typeof createBookSchema>;
+export type UpdateBook = z.infer<typeof updateBookSchema>
+export type QueryParams = z.infer<typeof getBooksSchema>;

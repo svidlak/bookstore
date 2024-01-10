@@ -31,7 +31,7 @@ export async function updateBook(book: Book) {
     const options = {
         url: `/books/${uuid}`,
         method: 'PUT',
-        data: JSON.stringify({ title, authors, price, category, description })
+        data: JSON.stringify({ title, authors, price: Number(price), category, description })
     }
 
     const { data } = await client(options)
@@ -56,6 +56,8 @@ export async function createBook(book: Book, file: File) {
 }
 
 async function postBook(book: Book) {
+    book.price = Number(book.price)
+
     const options = {
         url: `/books`,
         method: 'POST',

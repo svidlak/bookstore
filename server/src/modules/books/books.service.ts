@@ -1,38 +1,33 @@
 import { injectable } from "tsyringe";
 import { v4 } from "uuid";
-import { Database } from "../../utils/database";
-import { createBookBody, getBooksQueryParams, updateBook } from "./books.schemas";
-import { Book } from "./books.model";
+import { DbClient } from "../../clients/dbClient";
+import { CreateBook, QueryParams, UpdateBook, booksSchema } from "./books.schemas";
 
 @injectable()
 export class BooksService {
-    dbClient: Database;
+    dbClient: DbClient;
 
-    constructor(dbClient: Database) {
+    constructor(dbClient: DbClient) {
         this.dbClient = dbClient;
     }
-    async getBooks(query: getBooksQueryParams) {
-        return this.dbClient.getFromDb(query);
+
+    getBooks(query: QueryParams) {
+        return this.dbClient.select(query, booksSchema);
     }
 
-    async updateBook({ id, data }: updateBook) {
-        return this.dbClient.updateInDb({ id, data });
+    updateBook(id: string, data: UpdateBook) {
+        return this.dbClient.update(id, data, booksSchema);
     }
 
-    async deleteBook(id: string) {
-        return this.dbClient.deleteFromDb(id);
+    deleteBook(id: string) {
+        return this.dbClient.delete(id, booksSchema);
     }
 
-    async createBook(bookBody: createBookBody) {
-        const newBook: Book = {
+    createBook(bookBody: CreateBook) {
+        return this.dbClient.insert({
             ...bookBody,
             uuid: v4(),
             publicationDate: new Date().toISOString().substring(0, 10),
-            updated_at: Date.now(),
-            created_at: Date.now()
-        }
-
-        this.dbClient.insertToDb(newBook);
-        return newBook
+        }, booksSchema);
     }
 }
