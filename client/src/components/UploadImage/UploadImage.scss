@@ -1,0 +1,26 @@
+@import '../../globals.scss';
+
+.upload-image-wrapper {
+    border: 3px solid $primary-color;
+    border-radius: $border-radius;
+    height: 25rem;
+    width: 18.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+    
+
+    .upload-image-container {
+        height: 100%;
+        margin-top: 6rem;
+    }
+
+    .image-item {
+        border-radius: $border-radius;
+        height: 25rem;
+        width: 18.5rem;
+        background-size: cover;
+        background-position: center;
+    }
+}

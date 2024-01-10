@@ -1,0 +1,41 @@
+@import './globals.scss';
+
+body {
+  font-family: "Source Sans Pro";
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: $primary-color;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: black;
+}
+
+a {
+  font-weight: 500;
+  color: $primary-color;
+  text-decoration: inherit;
+}
+
+.btn {
+  border-radius: $border-radius;
+}
+
+.btn-danger {
+  background-color: $accent-color;
+}
+
+.accent-color {
+  color: $accent-color
+}
+
+.toast {
+  bottom: 2rem;
+  right: 2rem;
+  position: fixed;
+}

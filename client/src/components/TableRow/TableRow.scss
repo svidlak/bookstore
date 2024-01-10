@@ -1,0 +1,12 @@
+.table-row-wrapper {
+    .actions {
+        display: none !important;
+    }
+
+    &:hover {
+        .actions {
+            display: block !important;
+        }
+    }
+
+}

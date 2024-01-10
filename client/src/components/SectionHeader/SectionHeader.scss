@@ -1,0 +1,13 @@
+@import '../../globals.scss';
+
+.section-header-wrapper {
+    background-color: $secondary-background-color;
+    border-radius: $border-radius;
+    padding: 0.8rem;
+
+    img {
+        width: 1rem;
+        position: relative;
+        bottom: 1px;
+    }
+}

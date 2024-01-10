@@ -1,0 +1,44 @@
+@import '../../globals.scss';
+
+.book-card-wrapper {
+    background-color: $secondary-background-color;
+    width: 16rem;
+    border-radius: $border-radius;
+    position: relative;
+
+    .cover-img {
+        height: 20.2rem;
+        border-top-right-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .show-more-button-wrapper {
+        display: none;
+        position: absolute;
+        top: 38%;
+        left: 33%;
+    }
+
+    &:hover {
+        .cover-img {
+            opacity: 0.7;
+        }
+
+        .show-more-button-wrapper {
+            display: block;
+        }
+
+    }
+
+    .book-title {
+        font-size: 0.8rem;
+    }
+
+    div {
+        .book-price {
+            font-size: 1.2rem;
+        }
+    }
+}

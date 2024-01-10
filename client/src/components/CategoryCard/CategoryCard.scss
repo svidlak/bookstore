@@ -1,0 +1,18 @@
+@import '../../globals.scss';
+
+.category-card-wrapper {
+    width: 10rem;
+    height: 10rem;
+    background-color: $secondary-background-color;
+    border-radius: $border-radius;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+        color: white;
+    }
+
+    img {
+        width: 6rem;
+    }
+}

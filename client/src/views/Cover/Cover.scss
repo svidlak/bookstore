@@ -1,0 +1,22 @@
+@import '../../globals.scss';
+
+.cover-wrapper {
+    margin: 10rem 0;
+
+    > div {
+        h1 {
+            font-weight: 700;
+            font-size: 3rem;
+        }
+
+        h4 {
+            color: $secondary-color
+        }
+
+        margin-inline-end: 8rem;
+    }
+
+    >img {
+        margin-inline-end: 5rem;
+    }
+}

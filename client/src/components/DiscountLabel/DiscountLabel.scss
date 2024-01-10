@@ -1,0 +1,16 @@
+@import '../../globals.scss';
+
+.discount-label-wrapper {
+    position: relative;
+
+    .discount-label {
+        position: absolute;
+        top: 10px;
+        left: 150px;
+        background-color: $accent-color;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 100%;
+        
+    }
+}

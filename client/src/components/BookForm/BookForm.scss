@@ -1,0 +1,25 @@
+@import '../../globals.scss';
+
+form {
+    width: 47.1rem;
+    textarea, input, select {
+        color: $primary-color !important;
+        background-color: $secondary-background-color !important;
+        border: 0 !important;
+        $border-radius:$border-radius !important;
+
+    }
+
+    ::placeholder {
+        color: $secondary-color !important;
+        opacity: 1 !important;
+      }
+      
+    textarea{
+        $border-radius:$border-radius !important;
+
+    }
+    .error-message {
+        color: $accent-color;
+    }
+}

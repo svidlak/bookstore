@@ -1,0 +1,14 @@
+@import '../../globals.scss';
+
+.header-wrapper {
+    a {
+        &:hover {
+            color: $accent-color;
+            cursor: pointer;
+        }
+    }
+
+    a.active {
+        color: $accent-color;
+    }
+}

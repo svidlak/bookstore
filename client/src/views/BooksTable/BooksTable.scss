@@ -1,0 +1,15 @@
+@import '../../globals.scss';
+
+table {
+    table-layout: fixed;
+    thead {
+        color: $accent-color;
+    }
+
+    .kebab-icon{
+        height: 20px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

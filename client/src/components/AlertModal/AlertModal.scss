@@ -1,0 +1,7 @@
+@import '../../globals.scss';
+.modal-content {
+    background-color: $secondary-background-color !important;
+    * {
+        border: 0 !important;
+    }
+}

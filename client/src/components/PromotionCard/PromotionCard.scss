@@ -1,0 +1,15 @@
+@import '../../globals.scss';
+
+.promotion-card-wrapper {
+    background-color: $secondary-background-color;
+    border-radius: $border-radius;
+
+    .subtitle {
+        color: $secondary-color;
+        font-size: 0.9rem;
+    }
+
+    img {
+        width: 8rem;
+    }
+}

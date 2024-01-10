@@ -1,0 +1,13 @@
+@import '../../globals.scss';
+
+.image-wrapper {
+    border-radius: $border-radius;
+    height: 25rem;
+    width: 18.5rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.book-details-controller-wrapper {
+    width: 52rem;
+}

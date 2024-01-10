@@ -1,0 +1,15 @@
+@import '../../globals.scss';
+
+.countdown-timer-wrapper {
+    background-color: $accent-color;
+    border-radius: $border-radius;
+    height: 12rem;
+
+    .timer-wrapper {
+        span:not(.dots) {
+            background-color: $secondary-background-color;
+            border-radius: $border-radius;
+            padding: 0 0.5rem;
+        }
+    }
+}
