@@ -55,7 +55,7 @@ Client stack:
 - [React query](https://tanstack.com/query/v3/)
 - [React Bootstrap components](https://react-bootstrap.netlify.app/)
 - [Zustand](https://zustand-demo.pmnd.rs/) state manager
-- Styling with [Sass](https://sass-lang.com/)
+- [Sass](https://sass-lang.com/) styling
 
 Backend Stack:
 - [Node.js](https://nodejs.org/en)
