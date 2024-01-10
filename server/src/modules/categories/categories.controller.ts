@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
-import { singleton } from "tsyringe";
-import { getCategoriesSchema } from './categories.schemas';
+import { Request, Response } from 'express'
+import { singleton } from "tsyringe"
+import { getCategoriesSchema } from './categories.schemas'
 
 @singleton()
 export class CategoriesController {
     getCategories(req: Request, res: Response) {
-        const validationResult = getCategoriesSchema.safeParse(req.query);
+        const validationResult = getCategoriesSchema.safeParse(req.query)
         if(!validationResult.success) {
             return res.status(403).json(validationResult.error.errors)
         }

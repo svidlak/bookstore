@@ -1,8 +1,8 @@
-import { sqliteTable, uniqueIndex, index, text, integer } from 'drizzle-orm/sqlite-core';
-import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { sqliteTable, uniqueIndex, index, text, integer } from 'drizzle-orm/sqlite-core'
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
 
-import { z } from 'zod';
-import { validate } from 'uuid';
+import { z } from 'zod'
+import { validate } from 'uuid'
 
 export const booksSchema = sqliteTable('books', {
     id: integer('id').primaryKey({ autoIncrement: true }),
@@ -22,7 +22,7 @@ export const booksSchema = sqliteTable('books', {
         idx_books_uuid: uniqueIndex('uuid').on(table.uuid),
         idx_books_category: index('category').on(table.category)
     }
-});
+})
 
 export const createBookSchema = createInsertSchema(booksSchema).pick({
     title: true,
@@ -31,7 +31,7 @@ export const createBookSchema = createInsertSchema(booksSchema).pick({
     category: true,
     description: true,
     imageUrl: true
-}).strict();
+}).strict()
 
 export const updateBookSchema = createInsertSchema(booksSchema).pick({
     title: true,
@@ -44,7 +44,7 @@ export const updateBookSchema = createInsertSchema(booksSchema).pick({
 export const getBooksSchema = z.object({
     category: z.string().optional(),
     limit: z.string().optional()
-}).strict();
+}).strict()
 
 
 export const uuidRequestParam = z.object({
@@ -55,6 +55,6 @@ export const uuidRequestParam = z.object({
 export const targetBookSchema = createSelectSchema(booksSchema).strict()
 export const booksArraySchema = z.array(targetBookSchema)
 
-export type CreateBook = z.infer<typeof createBookSchema>;
+export type CreateBook = z.infer<typeof createBookSchema>
 export type UpdateBook = z.infer<typeof updateBookSchema>
-export type QueryParams = z.infer<typeof getBooksSchema>;
+export type QueryParams = z.infer<typeof getBooksSchema>

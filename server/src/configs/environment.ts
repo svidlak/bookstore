@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import 'dotenv/config'
 
 const { PORT, DATABASE_URL, AUTH_TOKEN } = process.env
 

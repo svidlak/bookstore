@@ -1,5 +1,5 @@
 import multer from 'multer'
-import { v4 } from 'uuid';
+import { v4 } from 'uuid'
 
 export default multer({
     storage: multer.diskStorage({
@@ -11,7 +11,7 @@ export default multer({
         }
     }),
     fileFilter: (_, file, cb) => {
-        const allowedFileTypes = ['image/jpeg', 'image/png'];
+        const allowedFileTypes = ['image/jpeg', 'image/png']
         cb(null, !!allowedFileTypes.includes(file.mimetype))
     },
-});
+})
