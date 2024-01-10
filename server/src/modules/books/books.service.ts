@@ -1,7 +1,7 @@
-import { injectable } from "tsyringe"
-import { v4 } from "uuid"
-import { DbClient } from "../../clients/dbClient"
-import { CreateBook, QueryParams, UpdateBook, booksSchema } from "./books.schemas"
+import { injectable } from 'tsyringe'
+import { v4 } from 'uuid'
+import { DbClient } from '../../clients/dbClient'
+import { CreateBook, QueryParams, UpdateBook, booksSchema } from './books.schemas'
 
 @injectable()
 export class BooksService {

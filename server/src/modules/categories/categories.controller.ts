@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { singleton } from "tsyringe"
+import { singleton } from 'tsyringe'
 import { getCategoriesSchema } from './categories.schemas'
 
 @singleton()

@@ -1,11 +1,11 @@
-import { singleton } from "tsyringe"
-import { QueryParams } from "../modules/books/books.schemas"
-import { createClient } from "@libsql/client"
+import { singleton } from 'tsyringe'
+import { QueryParams } from '../modules/books/books.schemas'
+import { createClient } from '@libsql/client'
 import { drizzle } from 'drizzle-orm/libsql'
 import { eq, desc, and, SQLWrapper } from 'drizzle-orm'
-import { SQLiteTable, TableConfig } from "drizzle-orm/sqlite-core"
-import { AUTH_TOKEN, DATABASE_URL } from "../configs/environment"
-import logger from "../utils/logger"
+import { SQLiteTable, TableConfig } from 'drizzle-orm/sqlite-core'
+import { AUTH_TOKEN, DATABASE_URL } from '../configs/environment'
+import logger from '../utils/logger'
 
 type CommonSchemaProperties = {
     uuid: SQLWrapper

@@ -1,7 +1,7 @@
 import { Response, Request } from 'express'
-import { injectable } from "tsyringe"
+import { injectable } from 'tsyringe'
 
-import { BooksService } from "./books.service"
+import { BooksService } from './books.service'
 
 import {
     CreateBook,

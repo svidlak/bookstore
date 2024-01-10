@@ -1,5 +1,5 @@
-import { Server } from "http"
-import logger from "./logger"
+import { Server } from 'http'
+import logger from './logger'
 
 const gracefulShutdown = (server: Server): void => {
     ['SIGINT', 'SIGTERM', 'SIGQUIT'].forEach( signal => {
