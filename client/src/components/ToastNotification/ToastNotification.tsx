@@ -1,7 +1,7 @@
 import Toast from 'react-bootstrap/Toast'
 import { useNotificationStore } from '../../store'
 import { useEffect } from 'react'
-import { ActionStatus } from '../../store/useNotificationStore'
+import { ActionStatus } from '../../models'
 
 function ToastNotification() {
     const {

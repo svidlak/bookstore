@@ -24,9 +24,9 @@ function TableRow({ book, handleDelete }: Props) {
             {
                 tableDataProperties.map((property, index) => {
                     if (index === 0) {
-                        return <th key={property + index} className='col text-truncate'>{property}</th>
+                        return <th key={property + index.toString()} className='col text-truncate'>{property}</th>
                     }
-                    return <td key={property + index} className='col text-truncate'>{property}</td>
+                    return <td key={property + index.toString()} className='col text-truncate'>{property}</td>
                 })
             }
             <td className='col-1 text-truncate'>
