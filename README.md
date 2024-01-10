@@ -35,6 +35,13 @@ Backend:
     npm ci
     npm run dev
 
+After installation steps we need to configure our database:
+
+    Make a Turso account (https://turso.tech/)
+    Create a new database
+    Dump books_table.sql file inside your DB
+
+And you're ready to go :)
 ## Running the tests
 
 Tests implemented for server only as for now:
