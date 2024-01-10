@@ -1,8 +1,8 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createBook } from "../services/api";
-import { Book } from "../models";
-import { useNotificationStore } from "../store";
-import { ActionStatusOptions } from "../models/ActionStatus";
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { createBook } from '../services/api'
+import { Book } from '../models'
+import { useNotificationStore } from '../store'
+import { ActionStatusOptions } from '../models/ActionStatus'
 
 function useCreateBook() {
     const setNotificationState = useNotificationStore(state => state.setNotificationState)

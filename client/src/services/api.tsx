@@ -69,8 +69,8 @@ async function postBook(book: Book) {
 }
 
 async function uploadImage(file: File) {
-    const formData = new FormData();
-    formData.append('photo', file);
+    const formData = new FormData()
+    formData.append('photo', file)
 
     const options = {
         url: `/upload`,

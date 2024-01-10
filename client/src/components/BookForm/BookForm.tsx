@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { Book, Category, FormState, FormStateOptions } from '../../models'
 
 interface Props {
@@ -20,7 +20,7 @@ interface Props {
 function BookForm({ book, loading, categories, formState, setFormState, updateBookHandler }: Props) {
     const categoryValues = categories.map(({ name }) => name.toLocaleLowerCase())
     const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: book })
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     return (
         <Form
