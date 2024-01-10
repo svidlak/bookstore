@@ -40,6 +40,7 @@ After installation steps we need to configure our database:
     Make a Turso account (https://turso.tech/)
     Create a new database
     Dump books_table.sql file inside your DB
+    Create .env file from .env.example with the appropriate Turso credentials
 
 And you're ready to go :)
 ## Running the tests
@@ -55,7 +56,7 @@ Client stack:
 - [React query](https://tanstack.com/query/v3/)
 - [React Bootstrap components](https://react-bootstrap.netlify.app/)
 - [Zustand](https://zustand-demo.pmnd.rs/) state manager
-- [Sass](https://sass-lang.com/) styling
+- Styling with [Sass](https://sass-lang.com/)
 
 Backend Stack:
 - [Node.js](https://nodejs.org/en)
