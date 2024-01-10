@@ -1,6 +1,8 @@
 import { Book } from '../models'
 import { IMAGE_BASE_PATH, client } from './requestClient'
 
+console.log(import.meta.env)
+
 export async function getCategories() {
     const { data } = await client.get(`/categories`)
     return data
