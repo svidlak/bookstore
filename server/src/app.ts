@@ -16,6 +16,7 @@ import requestRateLimit from './middlewares/requestRateLimit';
 import routeNotFound from './middlewares/routeNotFound';
 
 import { BooksRoutes, CategoriesRoutes } from './modules/routes';
+import gracefulShutdown from './utils/gracefulShutdown';
 
 const app = express();
 const port = PORT || 3000;
@@ -42,6 +43,8 @@ app.post(`${apiPrefix}/upload`, imageUploader.single('photo'), (req, res) => {
 app.use(routeNotFound);
 app.use(errorHandler);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     logger.info(`Server running at http://localhost:${port}`);
 });
+
+gracefulShutdown(server)
