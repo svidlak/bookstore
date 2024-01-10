@@ -24,10 +24,14 @@ const apiPrefix = '/api/v1'
 
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/', (_req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+})
+
 app.use(morgan('short'))
 app.use(bodyParser.json())
 app.use(requestRateLimit)
-
 app.use(apiPrefix, BooksRoutes)
 app.use(apiPrefix, CategoriesRoutes)
 
