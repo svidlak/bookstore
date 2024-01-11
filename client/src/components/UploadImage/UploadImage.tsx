@@ -4,22 +4,22 @@ import ImageUploading, { ImageListType } from 'react-images-uploading'
 import { UploadIcon } from '../../assets/icons'
 
 type DragProps = {
-    onDrop: (e: any) => void
-    onDragEnter: (e: any) => void
-    onDragLeave: (e: any) => void
-    onDragOver: (e: any) => void
-    onDragStart: (e: any) => void
+    onDrop: (e: never) => void
+    onDragEnter: (e: never) => void
+    onDragLeave: (e: never) => void
+    onDragOver: (e: never) => void
+    onDragStart: (e: never) => void
 }
 
 interface Props {
-    uploadImage: (file: File) => void
+    uploadImage: (file: File | undefined) => void
 }
 
 function UploadImage({ uploadImage }: Props) {
     const maxNumber = 1
-    const [images, setImages] = useState([])
+    const [images, setImages] = useState<ImageListType>([])
 
-    const onChange = (imageList: any) => {
+    const onChange = (imageList: ImageListType) => {
         setImages(imageList)
         uploadImage(imageList[0].file)
     }

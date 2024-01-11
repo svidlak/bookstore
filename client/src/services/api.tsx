@@ -8,7 +8,7 @@ export async function getCategories() {
 
 export async function getBooks({ limit, category }: { limit?: number, category?: string }) {
     const filteredParams = Object.fromEntries(
-        Object.entries({ limit, category }).filter(([_, value]) => value)
+        Object.entries({ limit, category }).filter(([, value]) => value)
     )
 
     const options = {
