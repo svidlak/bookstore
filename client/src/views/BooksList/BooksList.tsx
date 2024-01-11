@@ -1,18 +1,20 @@
-import { BookCard, SectionHeader } from '../../components'
+import { BookCard, BookCardSkeleton, SectionHeader } from '../../components'
 import { Book } from '../../models'
 
 type Props = {
     books: Book[]
     header: string
+    loading: boolean
 }
-function BooksList({ books, header }: Props) {
+
+function BooksList({ books, header, loading }: Props) {
     return (
         <div>
             <SectionHeader title={header} />
             <div className='d-flex flex-row flex-wrap justify-content-between'>
                 {
-                    books.map(book => {
-                        return (<BookCard key={book.uuid} book={book} />)
+                    books.map((book, idx) => {
+                        return loading ? <BookCardSkeleton key={idx} /> : <BookCard key={book.uuid + idx} book={book} />
                     })
                 }
             </div>

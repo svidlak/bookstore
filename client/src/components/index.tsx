@@ -10,6 +10,8 @@ import TableRow from './TableRow/TableRow'
 import AlertModal from './AlertModal/AlertModal'
 import ToastNotification from './ToastNotification/ToastNotification'
 import UploadImage from './UploadImage/UploadImage'
+import BookCardSkeleton from './BookCardSkeleton/GookCardSkeleton'
+import TableRowSkeleton from './TableRowSkeleton/TableRowSkeleton'
 
 export {
     CategoryCard,
@@ -23,5 +25,7 @@ export {
     TableRow,
     AlertModal,
     ToastNotification,
-    UploadImage
+    UploadImage,
+    BookCardSkeleton,
+    TableRowSkeleton
 }

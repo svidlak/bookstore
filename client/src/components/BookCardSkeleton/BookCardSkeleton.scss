@@ -1,0 +1,35 @@
+@import '../../globals.scss';
+
+.book-card-skeleton-wrapper {
+    background-color: $secondary-background-color;
+    width: 16rem;
+    border-radius: $border-radius;
+
+    p,
+    div {
+        background: $background-color;
+        background-image:
+            linear-gradient(90deg,
+                rgba($secondary-background-color, 0),
+                rgba($secondary-background-color, 0.5),
+                rgba($secondary-background-color, 0));
+        background-size: 200% 100%;
+        animation: 1.5s shine linear infinite;
+    }
+
+    .cover-img {
+        height: 20.8rem;
+        border-top-right-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+    }
+
+    .book-title {
+        height: 30px;
+    }
+}
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}

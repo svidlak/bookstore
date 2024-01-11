@@ -1,0 +1,23 @@
+@import '../../globals.scss';
+
+.table-row-skeleton-wrapper {
+
+    th,
+    td {
+        background-image:
+            linear-gradient(90deg,
+                rgba($secondary-background-color, 0),
+                rgba($secondary-background-color, 0.5),
+                rgba($secondary-background-color, 0));
+        background-size: 200% 100%;
+        animation: 1.5s shine linear infinite;
+
+    }
+}
+
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}

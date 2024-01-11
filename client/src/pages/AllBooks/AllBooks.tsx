@@ -2,10 +2,10 @@ import { useBooks } from '../../hooks'
 import { BooksTable } from '../../views'
 
 function AllBooks() {
-    const { books } = useBooks({ limit: 100 })
+    const { books, isLoading } = useBooks({ limit: 100 })
 
     return (<div className='mt-5'>
-        <BooksTable books={books}/>
+        <BooksTable loading={isLoading} books={books}/>
     </div>)
 }
 

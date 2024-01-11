@@ -1,6 +1,6 @@
 import './BooksTable.scss'
 import { Book, FormStateOptions } from '../../models'
-import { AlertModal, TableRow } from '../../components'
+import { AlertModal, TableRow, TableRowSkeleton } from '../../components'
 import { useState } from 'react'
 import useDeleteBook from '../../hooks/useDeleteBook'
 import Button from 'react-bootstrap/esm/Button'
@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom'
 
 type Props = {
     books: Book[]
+    loading: boolean
 }
 
-function BooksTable({ books }: Props) {
+function BooksTable({ books, loading }: Props) {
     const [showAlert, setShowAlert] = useState(false)
     const [selectedBook, setSelectedBook] = useState({} as Book)
     const { deleteBook } = useDeleteBook()
@@ -41,12 +42,14 @@ function BooksTable({ books }: Props) {
                 </thead>
                 <tbody>
                     {
-                        books.map((book, index) =>
-                            <TableRow
+                        books.map((book, index) => {
+                            return loading ? <TableRowSkeleton key={index} /> : <TableRow
                                 key={book.uuid + index}
                                 book={book}
                                 handleDelete={handleDeleteConfirmation}
-                            />)
+                            />
+                        })
+
                     }
                 </tbody>
             </table>

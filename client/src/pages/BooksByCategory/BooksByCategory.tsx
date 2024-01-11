@@ -5,16 +5,16 @@ import { CategoryCard } from '../../components'
 
 function BooksByCategory() {
     const { state } = useLocation()
-    const { categories, isLoading } = useCategories()
+    const { categories, isLoading: categoriesLoading } = useCategories()
 
     const currentCategory = categories.find(({ name }) => name === state?.categoryName)
 
-    const { books } = useBooks({
+    const { books, isLoading: booksLoading } = useBooks({
         limit: 8,
         category: currentCategory?.name ? currentCategory?.name.toLowerCase() : undefined
     })
 
-    if (!isLoading && !currentCategory) {
+    if (!categoriesLoading && !currentCategory) {
         return <Navigate to='/not-found' />
     }
 
@@ -23,7 +23,7 @@ function BooksByCategory() {
             <CategoryCard text={currentCategory?.name} image={currentCategory?.image} />
         </div>
         <div className='w-100'>
-            <BooksList books={books} header={`${state?.categoryName} books`} />
+            <BooksList books={books} loading={booksLoading} header={`${state?.categoryName} books`} />
         </div>
     </div>)
 }

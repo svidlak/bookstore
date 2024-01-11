@@ -2,7 +2,7 @@ import { Cover, Categories, Promotions, BooksList } from '../../views'
 import { useBooks } from '../../hooks'
 
 function Home() {
-  const { books } = useBooks({ limit: 6 })
+  const { books, isLoading } = useBooks({ limit: 6 })
 
   return (
     <>
@@ -13,7 +13,7 @@ function Home() {
           <Promotions />
         </div>
         <div className='w-75 px-4'>
-          <BooksList books={books} header='New Releases' />
+          <BooksList loading={isLoading} books={books} header='New Releases' />
         </div>
       </div>
     </>
