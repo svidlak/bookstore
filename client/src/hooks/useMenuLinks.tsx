@@ -1,9 +1,10 @@
-const menuLinks = [
-    { name: 'HOME', route: '/' },
-    { name: 'HOME', route: '/' },
-    { name: 'ALL BOOKS', route: '/books' },
-]
 function useMenuLinks() {
+    const menuLinks = [
+        { name: 'HOME', route: '/' },
+        { name: 'HOME', route: '/' },
+        { name: 'ALL BOOKS', route: '/books' },
+    ]
+    
     return menuLinks
 }
 

@@ -5,9 +5,9 @@ interface Props {
     title: string
     subtitle: string
 }
-const hoursCountdown = 10
 
 function CountdownTimer({ title, subtitle }: Props) {
+    const hoursCountdown = 10
     const { hours, minutes, seconds } = useCountdownTimer(hoursCountdown)
 
     return (
