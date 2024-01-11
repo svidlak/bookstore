@@ -11,14 +11,14 @@ type Props = {
 
 function BookDetailsController({ book, formState }: Props) {
     const [formStateValue, setFormState] = useState<FormState>(formState)
-    const [tempImageFile, setTempImageFile] = useState<File | null>(null)
+    const [tempImageFile, setTempImageFile] = useState<File | undefined>(undefined)
     const [showAlert, setShowAlert] = useState(false)
 
     const { bookState, updateBook, loading: updateBookLoading } = useUpdateBook(book)
     const { categories } = useCategories()
     const { createBook, loading: createBookLoading } = useCreateBook()
 
-    const uploadTmpImage = (image: File) => setTempImageFile(() => image)
+    const uploadTmpImage = (image: File | undefined) => setTempImageFile(() => image)
 
     const updateBookHandler = async (book: Book) => {
         if (formStateValue === FormStateOptions.Edit) {
