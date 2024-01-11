@@ -3,7 +3,7 @@ import { useState } from 'react'
 import ImageUploading, { ImageListType } from 'react-images-uploading'
 import { UploadIcon } from '../../assets/icons'
 
-type DragProps = {
+interface DragProps {
     onDrop: (e: never) => void
     onDragEnter: (e: never) => void
     onDragLeave: (e: never) => void

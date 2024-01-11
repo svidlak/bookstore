@@ -1,6 +1,6 @@
 import './CategoryCard.scss'
 
-type Props = {
+interface Props {
     text?: string
     image?: string
 }

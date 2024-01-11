@@ -3,7 +3,7 @@ import { Book, FormStateOptions } from '../../models'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/esm/Button'
 
-type Props = {
+interface Props {
     book: Book
 }
 

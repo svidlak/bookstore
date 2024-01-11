@@ -7,14 +7,14 @@ import { SQLiteTable, TableConfig } from 'drizzle-orm/sqlite-core'
 import { AUTH_TOKEN, DATABASE_URL } from '../configs/environment'
 import logger from '../utils/logger'
 
-type CommonSchemaProperties = {
+interface CommonSchemaProperties extends SQLiteTable<TableConfig> {
     uuid: SQLWrapper
     category: SQLWrapper
     active: SQLWrapper
     id: SQLWrapper
-} & SQLiteTable<TableConfig>
+} 
 
-type GenericDataObject = { [x: string]: any }
+type GenericDataObject = { [x: string]: unknown }
 
 @singleton()
 export class DbClient {

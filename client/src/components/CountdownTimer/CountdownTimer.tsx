@@ -1,7 +1,7 @@
 import './CountdownTimer.scss'
 import { useCountdownTimer } from '../../hooks'
 
-type Props = {
+interface Props {
     title: string
     subtitle: string
 }

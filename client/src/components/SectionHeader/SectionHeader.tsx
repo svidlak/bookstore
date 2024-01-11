@@ -1,7 +1,7 @@
 import './SectionHeader.scss'
 import { LogoImage } from '../../assets/images/index'
 
-type Props = {
+interface Props {
     title: string
 }
 function SectionHeader({ title }: Props) {

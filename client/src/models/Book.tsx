@@ -1,4 +1,4 @@
-export type Book = {
+export interface Book {
     uuid: string
     title: string
     description: string

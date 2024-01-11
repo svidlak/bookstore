@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/esm/Button'
 import { DiscountLabel } from '..'
 import './PromotionCard.scss'
 
-type Props = {
+interface Props {
     subtitle: string
     image: string
     discount: string

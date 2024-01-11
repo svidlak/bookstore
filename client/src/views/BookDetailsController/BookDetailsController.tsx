@@ -4,7 +4,7 @@ import { AlertModal, BookDetails, BookForm, UploadImage } from '../../components
 import { useState } from 'react'
 import { useCategories, useUpdateBook, useCreateBook } from '../../hooks'
 
-type Props = {
+interface Props {
     book: Book
     formState: FormState
 }

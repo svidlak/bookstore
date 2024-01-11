@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { ActionStatus } from '../models'
 
-type NotificationStateParams = {
+interface NotificationStateParams {
     notificationVisibility: boolean,
     notificationStatus?: ActionStatus
 }

@@ -1,6 +1,6 @@
 import './DiscountLabel.scss'
 
-type Props = {
+interface Props {
     discount: string
 }
 function DiscountLabel({ discount }: Props) {

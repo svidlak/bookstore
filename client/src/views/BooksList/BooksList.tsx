@@ -1,7 +1,7 @@
 import { BookCard, BookCardSkeleton, SectionHeader } from '../../components'
 import { Book } from '../../models'
 
-type Props = {
+interface Props {
     books: Book[]
     header: string
     loading: boolean
