@@ -47,7 +47,7 @@ app.post(`${apiPrefix}/upload`, imageUploader.single('photo'), (req, res) => {
 app.use(routeNotFound)
 app.use(errorHandler)
 
-const server = app.listen(port, () => {
+const server = app.listen(port as number, '::', () => {
     logger.info(`Server running at http://localhost:${port}`)
 })
 

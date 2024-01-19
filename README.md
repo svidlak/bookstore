@@ -4,7 +4,7 @@ A simple Fullstack application that displays a list of books with the ability to
 
 This is by no means a production ready product, but its a nice demonstration of some of my skills.
 
-[Live demo](http://mookstore.s3-website-eu-west-1.amazonaws.com/) or [Second link](http://18.201.37.94:3000/)
+[Live demo](https://book-store.fly.dev/) 
 
 ## Getting Started
 

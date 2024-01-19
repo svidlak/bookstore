@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon src/app.ts",
     "build": "tsc",
+    "postbuild": "cp -r ./src/public ./dist/public",
     "start": "node dist/app.js",
     "test": "jest"
   },
